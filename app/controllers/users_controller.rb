@@ -6,6 +6,12 @@ class UsersController < ApplicationController
 
         end
 
+        def show 
+            user = User.find(session[:user_id])
+            session[:user_id] = user.id
+            render json: user
+
+        end
 
 
         #sign up 
