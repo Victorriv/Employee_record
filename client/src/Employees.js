@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from "react"
+import {Link} from 'react-router-dom';
 
 
 function Employees() {
     const[employees, setEmployees] = useState([])
+
+
+
 
     useEffect(()=> {
         fetch(`/users/${user.id}`)
@@ -15,10 +19,9 @@ function Employees() {
 
 
     return (
-        <h1> Employees </h1>
+        
 
-
-    )
+    
 
 }
 
