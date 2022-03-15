@@ -8,6 +8,31 @@ function EmployeeForm(){
     const [gender, setGender] = useState("")
 
 
+    function handleSubmit (e){
+        e.preventDefault()
+        setName("")
+        setAge(0)
+        setStatus("")
+        setGender("")
+
+        fetch("/employees",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name,
+                age,
+                status,
+                gender,
+                user_id: user.id
+            }),
+        })
+        .then(r => r.json())
+        .then(t => addEmployee(t))
+    }
+
+
     return(
         <div>
             <form onSubmit={handleSubmit}>
