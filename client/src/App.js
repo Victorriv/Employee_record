@@ -1,5 +1,6 @@
 import './App.css';
-import {useState, useEffect} from "react";
+import EmployeeCard from './EmployeeCard';
+//import {useState, useEffect} from "react";
 import Employees from './Employees';
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
     <div className="App">
       <header className="App-header">
        
-        <Employees/> 
+        <Employees/>
+        <EmployeeCard/> 
         
       </header>
     </div>
