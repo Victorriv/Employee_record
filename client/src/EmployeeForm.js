@@ -1,7 +1,7 @@
-import {useState} from "react"
+import { useState } from "react"
 
 
-function EmployeeForm(){
+function EmployeeForm({user}){
     const [name, setName] = useState("")
     const [age, setAge] = useState("")
     const [status, setStatus] = useState("")
@@ -49,6 +49,7 @@ function EmployeeForm(){
 
                 <label>Gender</label>
                 <input type="text" id="gender" value={gender} onChange={e => setGender(e.target.value)}/>
+                <input type= "submit" />
                 
                 
             </form>

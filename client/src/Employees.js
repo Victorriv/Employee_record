@@ -2,11 +2,16 @@ import React, {useEffect, useState} from "react"
 import {Link} from 'react-router-dom';
 import EmployeeCard from "./EmployeeCard"
 
+
 function Employees() {
     const[employees, setEmployees] = useState([])
 
-
-
+    
+    function removeEmployee(employee){
+        setEmployees((employees)=> employees.filter(t => t.id !== employee.id))
+    }
+    
+    
 
     useEffect(()=> {
         fetch(`/employees`)

@@ -2,7 +2,7 @@ import './App.css';
 import EmployeeCard from './EmployeeCard';
 //import {useState, useEffect} from "react";
 import Employees from './Employees';
-
+import EmployeeForm from './EmployeeForm'
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       <header className="App-header">
        
         <Employees/>
-        
+        <EmployeeForm/>
         
       </header>
     </div>
