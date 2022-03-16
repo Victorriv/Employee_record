@@ -10,14 +10,25 @@ function App() {
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-       
-        <Employees/>
-        <EmployeeForm/>
-        
-      </header>
+    <div className= "App">
+    <main>
+     <Switch>
+            <Route exact path ="/">
+            <Employees user={user}/>
+          
+            <button onClick={handleLogout}> Logout </button>
+           </Route>
+            <Route exact path="/new"></Route>
+           <Route exact path="/about">
+           <About/>
+           
+          </Route>
+
+      </Switch>
+    </main>
+    
     </div>
+    
   );
 }
 
