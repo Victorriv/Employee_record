@@ -1,9 +1,9 @@
 import './App.css';
 import LoginForm from "./LoginForm"
-//import {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import Employees from './Employees';
-import EmployeeForm from './EmployeeForm'
 import { Route, Switch} from 'react-router-dom';
+import About from "./About"
 
 function App() {
   const [user, setUser] = useState("")
