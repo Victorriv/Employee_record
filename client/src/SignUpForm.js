@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 
 
-function SignUpForm(){
+function SignUpForm({setUser}){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 

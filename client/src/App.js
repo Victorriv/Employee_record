@@ -1,8 +1,9 @@
 import './App.css';
-import EmployeeCard from './EmployeeCard';
+import LoginForm from "./LoginForm"
 //import {useState, useEffect} from "react";
 import Employees from './Employees';
 import EmployeeForm from './EmployeeForm'
+import { Route, Switch} from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState("")
@@ -15,7 +16,7 @@ function App() {
 
 
 
-  if (!user) return <Login setUser ={setUser} /> 
+  if (!user) return <LoginForm setUser ={setUser} /> 
   return (
     <div className= "App">
     <main>
