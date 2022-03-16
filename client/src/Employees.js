@@ -15,6 +15,16 @@ function Employees() {
         setEmployees([...employees, employee])
     }
 
+    function editEmployee(employee){
+        const edited = employees.map(t =>{
+            if (employee.id === t.id) {
+                return employee
+            }
+            return t
+        })
+        setEmployees(edited)
+    }
+
     
 
     useEffect(()=> {
