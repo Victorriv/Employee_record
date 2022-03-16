@@ -25,7 +25,40 @@ function SignUpForm(){
     }
 
 
+    return (
 
+        <div className= "App">
+            <form onSubmit = {handleSubmit}>
+                <label>  Create an Account: </label>
+                <input type= "text" 
+                        id = "username"
+                        value = {username}
+                        onChange= {e => setUsername(e.target.value) } />
+
+                        <br/>
+                        <label> Password: </label>
+                        <input 
+                        type="password"
+                        id="password"
+                        value= {password}
+                        onChange={e => setPassword(e.target.value)}
+                        
+                        
+                        
+                        />
+
+                        <br/>
+                        
+                <button type= "Submit"> SignUp </button>
+                
+            </form>
+
+        </div>
+
+
+    )
 
 
 }
+
+export default SignUpForm
