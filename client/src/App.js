@@ -8,7 +8,7 @@ function App() {
 
 
 
-
+  if (!user) return <Login setUser ={setUser} /> 
   return (
     <div className= "App">
     <main>
