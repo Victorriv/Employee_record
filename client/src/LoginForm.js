@@ -20,7 +20,17 @@ function LoginForm(){
 
     return(
 
-        <div></div>
+        <div className= "App">
+            <h4>Login to your account: </h4>
+            <form onSubmit = {handleSubmit}>
+                <label> Username: </label>
+                    <input 
+                        type= "text" 
+                        id = "username"
+                        value = {username}
+                        onChange= {e => setUsername(e.target.value)}
+                     />
+        </div>
     )
 
 }
