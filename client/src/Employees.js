@@ -10,7 +10,11 @@ function Employees() {
     function removeEmployee(employee){
         setEmployees((employees)=> employees.filter(t => t.id !== employee.id))
     }
-    
+
+    function addEmployee(employee){ 
+        setEmployees([...employees, employee])
+    }
+
     
 
     useEffect(()=> {
