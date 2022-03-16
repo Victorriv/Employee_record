@@ -2,7 +2,9 @@ import React, {useState} from "react"
 
 
 function LoginForm(){
-    const [username, setUserName] = useState("")
+    const [username, setUsername] = useState("")
+    const [errors, setErrors] = useState("")
+
 
 
     function handleSubmit(e){
@@ -14,7 +16,11 @@ function LoginForm(){
             },
             body: JSON.stringify({username, password}),
         }).then((r) => {
-            console.log(r)
+            if (r.ok) {
+                r.json().then((user) => setUser(user));
+              } else {
+                r.json().then((err) => setErrors(err.errors)) 
+              }
           });
         }
 
@@ -30,6 +36,7 @@ function LoginForm(){
                         value = {username}
                         onChange= {e => setUsername(e.target.value)}
                      />
+            </form>
         </div>
     )
 
