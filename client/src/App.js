@@ -7,6 +7,13 @@ import EmployeeForm from './EmployeeForm'
 function App() {
   const [user, setUser] = useState("")
 
+  function handleLogout(){
+    fetch("/logout", {method: "DELETE"}).then(r => {
+      setUser(null)
+    })
+  }
+
+
 
   if (!user) return <Login setUser ={setUser} /> 
   return (
