@@ -5,7 +5,7 @@ import Employees from './Employees';
 import EmployeeForm from './EmployeeForm'
 
 function App() {
-
+  const [user, setUser] = useState("")
 
 
   if (!user) return <Login setUser ={setUser} /> 
