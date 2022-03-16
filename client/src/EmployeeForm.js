@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-function EmployeeForm({user}){
+function EmployeeForm({user, addEmployee}){
     const [name, setName] = useState("")
     const [age, setAge] = useState("")
     const [status, setStatus] = useState("")
