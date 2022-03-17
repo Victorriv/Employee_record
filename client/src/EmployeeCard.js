@@ -2,6 +2,13 @@ import React, {useState} from 'react'
 
 function EmployeeCard({employee}){
 
+    function handleDelete(employee){
+        fetch(`/employees/${employee.id}`, {method: "DELETE"}).then(r => {
+            removeEmployee(employee)
+            
+          })
+    }
+
 
 
     return(
@@ -14,7 +21,7 @@ function EmployeeCard({employee}){
 
 
 
-            <button onClick={e => handleDelete(employee)} > Delete </button>
+            <button onClick={e => handleDelete(employee)} > Remove </button>
 
 
         </div>
