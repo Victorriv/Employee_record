@@ -4,7 +4,7 @@ import EmployeeCard from "./EmployeeCard"
 import EmployeeForm from "./EmployeeForm";
 
 
-function Employees() {
+function Employees({user}) {
     const[employees, setEmployees] = useState([])
 
     
@@ -29,7 +29,7 @@ function Employees() {
     
 
     useEffect(()=> {
-        fetch(`/employees`)
+        fetch(`/users/${user.id}`)
         .then((r) => r.json())
         .then(setEmployees)
     }, [])  
