@@ -12,6 +12,11 @@ function EmployeeCard({employee}){
             <p> Status: {employee.status}</p>
             <p> Gender: {employee.gender}</p>
 
+
+
+            <button onClick={e => handleDelete(employee)} > Delete </button>
+
+
         </div>
 
 
