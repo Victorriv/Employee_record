@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import {Link} from 'react-router-dom';
 import EmployeeCard from "./EmployeeCard"
+import EmployeeForm from "./EmployeeForm";
 
 
 function Employees() {
@@ -41,7 +42,7 @@ function Employees() {
             <h1>Employee list</h1>
             <Link to={`/about`}><h4>About</h4></Link>
             {employees.map(t => <EmployeeCard user={t} editEmployee={editEmployee} key={t.id} removeEmployee={removeEmployee} />)}
-            <EmployeeForm user={user} addDog={addDog}/>
+            <EmployeeForm user={user} addEmployee={addEmployee}/>
             
             
             
