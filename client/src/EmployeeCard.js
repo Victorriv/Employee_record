@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function EmployeeCard({employee}){
+function EmployeeCard({employee, removeEmployee}){
 
     function handleDelete(employee){
         fetch(`/employees/${employee.id}`, {method: "DELETE"}).then(r => {
