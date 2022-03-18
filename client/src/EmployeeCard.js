@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import EditForm from './EditForm'
 
 function EmployeeCard({employee, removeEmployee}){
     const [editForm, setEditForm] = useState(false)
@@ -25,7 +26,7 @@ function EmployeeCard({employee, removeEmployee}){
 
             <button onClick={e => handleDelete(employee)} > Remove </button>
 
-
+            <EditForm employee={employee}/>
         </div>
 
 
