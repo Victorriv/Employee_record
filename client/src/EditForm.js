@@ -7,7 +7,33 @@ function EditForm({employee}){
     const [gender, setGender] = useState(employee.gender)
 
 
-    
+    function handleSubmit(e){
+        e.preventDefault()
+        setName("")
+        setAge(0)
+        setStatus("")
+        setGender("")
+
+
+        fetch(`/employees/${employee.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name,
+                age,
+                status,
+                gender,
+                user_id: user.id
+            }),
+        })
+          .then(r => r.json())
+          .then(t => {
+              editEmployee(t)
+              handleEditButtonClick()
+            })
+    }
     
 
 
