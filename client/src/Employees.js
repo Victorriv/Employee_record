@@ -41,7 +41,7 @@ function Employees({user}) {
         <div>
             <h1>Employee list</h1>
             <Link to={`/about`}><h4>About</h4></Link>
-            {employees.map(t => <EmployeeCard user={t} editEmployee={editEmployee} key={t.id} removeEmployee={removeEmployee} />)}
+            {employees.map(t => <EmployeeCard user={user} editEmployee={editEmployee} key={t.id} employee={t} removeEmployee={removeEmployee} />)}
             <EmployeeForm user={user} addEmployee={addEmployee}/>
             
             
