@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 
 function EmployeeCard({employee, removeEmployee}){
+    const [editForm, setEditForm] = useState(false)
 
+    
     function handleDelete(employee){
         fetch(`/employees/${employee.id}`, {method: "DELETE"}).then(r => {
             removeEmployee(employee)
