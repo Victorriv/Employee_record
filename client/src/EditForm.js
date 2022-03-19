@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-function EditForm({employee,user}){
+function EditForm({employee,user, editEmployee, handleEditButtonClick}){
     const [name, setName] = useState(employee.name)
     const [age, setAge] = useState(employee.age)
     const [status, setStatus] = useState(employee.status)
