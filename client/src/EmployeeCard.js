@@ -3,6 +3,7 @@ import EditForm from './EditForm'
 
 function EmployeeCard({employee, removeEmployee, user}){
     const [editForm, setEditForm] = useState(false)
+    const [editButton, setEditButton] = useState("Show Edit Form")
 
     
     function handleDelete(employee){
@@ -10,6 +11,11 @@ function EmployeeCard({employee, removeEmployee, user}){
             removeEmployee(employee)
             
           })
+    }
+
+    function handleEditButtonClick(){
+        setEditForm(!editForm)
+        !editForm ? setEditButton("Hide Edit Form") : setEditButton("Show Edit Form")
     }
 
 
@@ -21,12 +27,11 @@ function EmployeeCard({employee, removeEmployee, user}){
             <p> Age: {employee.age}</p>
             <p> Status: {employee.status}</p>
             <p> Gender: {employee.gender}</p>
-
-
-
+            <br></br>
             <button onClick={e => handleDelete(employee)} > Remove </button>
+            <button onClick={e => handleEditButtonClick()}>{editButton}</button>
 
-            <EditForm employee={employee}/>
+            {editForm ? <EditForm handleEditButtonClick={handleEditButtonClick} editEmployee={editEmployee} employee={employee} user={user}/> : null}
         </div>
 
 
