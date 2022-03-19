@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import EditForm from './EditForm'
 
-function EmployeeCard({employee, removeEmployee, user}){
+function EmployeeCard({employee, removeEmployee, user, editEmployee}){
     const [editForm, setEditForm] = useState(false)
     const [editButton, setEditButton] = useState("Show Edit Form")
 
