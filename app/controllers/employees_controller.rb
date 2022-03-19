@@ -12,7 +12,8 @@ class EmployeesController < ApplicationController
     end
 
     def update
-        employee = Employee.update(employee_params)
+        employee = Employee.find(params[:id])
+        employee.update(employee_params)
         render json: employee
 
     end
