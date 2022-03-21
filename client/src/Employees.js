@@ -31,7 +31,9 @@ function Employees({user}) {
     useEffect(()=> {
         fetch(`/users/${user.id}`)
         .then((r) => r.json())
-        .then(setEmployees)
+        .then((d) =>{ 
+            setEmployees(d.employees)
+        })
     }, [])  
 
 
