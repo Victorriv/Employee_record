@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         end
 
         def show 
-            user = User.find(params[:id])
+            user = User.find(session[:user_id])
             session[:user_id] = user.id
             render json: user
 
