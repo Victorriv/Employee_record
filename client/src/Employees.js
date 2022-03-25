@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react"
-import {Link} from 'react-router-dom';
 import EmployeeCard from "./EmployeeCard"
 import EmployeeForm from "./EmployeeForm";
 
@@ -31,10 +30,11 @@ function Employees({user}) {
     useEffect(()=> {
         fetch(`/users/${user.id}`)
         .then((r) => r.json())
-        .then((d) =>{ 
+        .then((d) => {
             setEmployees(d.employees)
         })
-    }, [])  
+    }, [])  // eslint-disable-line react-hooks/exhaustive-deps
+
 
 
 
@@ -42,8 +42,7 @@ function Employees({user}) {
         
         <div>
             <h1>Employee list</h1>
-            <Link to={`/about`}><h4>About</h4></Link>
-            {employees.map(t => <EmployeeCard user={user} editEmployee={editEmployee} key={t.id} employee={t} removeEmployee={removeEmployee} />)}
+            {employees && employees.map(t => <EmployeeCard user={user} editEmployee={editEmployee} key={t.id} employee={t} removeEmployee={removeEmployee} />)}
             <EmployeeForm user={user} addEmployee={addEmployee}/>
             
             

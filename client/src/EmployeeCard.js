@@ -21,14 +21,14 @@ function EmployeeCard({employee, removeEmployee, user, editEmployee}){
 
 
     return(
-        <div>
-            {/* <h1>Employee Card</h1> */}
+        <div className="card">
+            
             <p>Name: {employee.name}</p>
             <p> Age: {employee.age}</p>
             <p> Status: {employee.status}</p>
             <p> Gender: {employee.gender}</p>
             <br></br>
-            <button onClick={e => handleDelete(employee)} > Remove </button>
+            <button onClick={e => handleDelete(employee)} className= "delete"> Remove </button>
             <button onClick={e => handleEditButtonClick()}>{editButton}</button>
 
             {editForm ? <EditForm handleEditButtonClick={handleEditButtonClick} editEmployee={editEmployee} employee={employee} user={user}/> : null}
