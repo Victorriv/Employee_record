@@ -13,8 +13,13 @@ class EmployeesController < ApplicationController
 
     def update
         employee = Employee.find(params[:id])
-        employee.update(employee_params)
-        render json: employee
+        if @current_user.id == employee.user.id
+         employee.update(employee_params)
+         render json: employee
+        else
+
+         render json: {errors: ["Employee(s) cant be accessed"]}, status: :unauthorized
+        end
 
     end
 
