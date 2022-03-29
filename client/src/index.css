@@ -21,14 +21,14 @@ code {
 }
 
 html{
-  background-color: #57aada;
+  background-color: #4b3a04a6;
 }
 
 
 .card{
-  background-color: #d8da57;
+  background-color: #866a0fb4;
   width: 300px;
-  border: 15px solid green;
+  border: 15px solid rgb(0, 92, 0);
   padding: 50px;
   margin: 20px;
   
@@ -36,21 +36,20 @@ html{
 
 .card > p
 {
-  background: red;
-  color: blue;
+  background: rgb(228, 220, 220);
+  color: hsla(187, 77%, 27%, 0.993);
   font-size: larger;
   font-weight: bold;
 }
 
-/* .card > button
-{
-  background: orange;
-
-} */
 
 
 .delete{
 
-  background: red;
+  background: rgb(224, 138, 138);
 
+}
+
+.edits{
+  background: lightblue;
 }

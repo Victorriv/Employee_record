@@ -15,7 +15,7 @@ function EmployeeCard({employee, removeEmployee, user, editEmployee}){
 
     function handleEditButtonClick(){
         setEditForm(!editForm)
-        !editForm ? setEditButton("Hide Edit Form") : setEditButton("Show Edit Form")
+        !editForm ? setEditButton("Return") : setEditButton("Edit Employee")
     }
 
 
@@ -29,7 +29,7 @@ function EmployeeCard({employee, removeEmployee, user, editEmployee}){
             <p> Gender: {employee.gender}</p>
             <br></br>
             <button onClick={e => handleDelete(employee)} className= "delete"> Remove </button>
-            <button onClick={e => handleEditButtonClick()}>{editButton}</button>
+            <button onClick={e => handleEditButtonClick()} className="edits" >{editButton}</button>
 
             {editForm ? <EditForm handleEditButtonClick={handleEditButtonClick} editEmployee={editEmployee} employee={employee} user={user}/> : null}
         </div>
