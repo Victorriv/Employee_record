@@ -26,15 +26,15 @@ function App() {
   
 
 
-
   if (!user) return <LoginForm setUser ={setUser} /> 
   return (
     <div className= "App">
     <main>
-
+     
     <div>
        <nav> 
           <NavBar  onLogout={onLogout} /> 
+
       
        </nav>
        </div>

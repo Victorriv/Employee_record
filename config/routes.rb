@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get "/me", to: "users#show"
+  get "/employee/organize", to: "employees#organize"
 
 
   # Routing logic: fallback requests for React Router.

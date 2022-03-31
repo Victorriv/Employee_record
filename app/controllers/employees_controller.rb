@@ -1,6 +1,12 @@
 class EmployeesController < ApplicationController
     skip_before_action :authorize
 
+    def organize
+        @current_user = User.find(session[:user_id])
+        employees = @current_user.employees.by_ages
+        render json: employees
+    end
+
     def index
         employees = Employee.all
         render json: employees
@@ -12,27 +18,24 @@ class EmployeesController < ApplicationController
     end
 
     def update
-        employee = Employee.find(params[:id])
-        if @current_user.id == employee.user.id
+        employee = finding_employee
          employee.update(employee_params)
          render json: employee
-        else
-
-         render json: {errors: ["Employee(s) cant be accessed"]}, status: :unauthorized
-        end
-
+    
     end
 
     def destroy
-        employee = Employee.find(params[:id])
-        employee.destroy
+         employee = finding_employee
+         employee.destroy
+         head :no_content
     end
 
     def show
-        employee = Employee.find(params[:id])
+        employee = finding_employee
         render json: employee
 
     end
+
 
         private
 
@@ -41,6 +44,9 @@ class EmployeesController < ApplicationController
 
         end
 
+        def finding_employee
+            Employee.find(params[:id])
+        end
 
 
 end

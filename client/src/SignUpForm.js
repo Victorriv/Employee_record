@@ -4,7 +4,7 @@ import React, {useState} from "react"
 function SignUpForm({setUser}){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-
+    const [errors, setErrors] = useState("")
 
     function handleSubmit(e){
         e.preventDefault() 
@@ -18,10 +18,12 @@ function SignUpForm({setUser}){
                 password,
             }),
         }).then(r => {
-            console.log(r)
-             r.json().then(user => setUser(user));
-
-         });
+            if (r.ok) {
+                r.json().then((user) => setUser(user));
+              } else {
+                r.json().then((err) => setErrors(err.errors)) 
+              }
+          });
     }
 
 
@@ -50,6 +52,7 @@ function SignUpForm({setUser}){
                         <br/>
                         
                 <button type= "Submit"> SignUp </button>
+                <br/><br/>{errors}
                 
             </form>
 

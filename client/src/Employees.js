@@ -35,15 +35,24 @@ function Employees({user}) {
         })
     }, [])  // eslint-disable-line react-hooks/exhaustive-deps
 
+    const organizeOrder = () =>{
+        fetch('/employee/organize')
+        .then((res) => res.json())
+        .then((o) => setEmployees(o));
+    };
 
-
-
+    const showEmployees = employees&&employees.map((employee) => <EmployeeCard user={user} editEmployee={editEmployee} key={employee.id} employee={employee} removeEmployee={removeEmployee} />)
     return (
         
         <div>
             <h1>Employee list</h1>
-            {employees && employees.map(t => <EmployeeCard user={user} editEmployee={editEmployee} key={t.id} employee={t} removeEmployee={removeEmployee} />)}
+            <button onClick= {organizeOrder}> Organize</button>
+
+            {showEmployees}
             <EmployeeForm user={user} addEmployee={addEmployee}/>
+            
+            
+            
             
             
             
