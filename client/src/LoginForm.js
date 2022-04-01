@@ -28,7 +28,7 @@ function LoginForm({setUser}){
     return(
 
         <div className= "App">
-            <h4>Login to your account: </h4>
+            <h2> Account Login: </h2>
             <form onSubmit = {handleSubmit}>
                 <label> Username: </label>
                     <input 
@@ -50,7 +50,7 @@ function LoginForm({setUser}){
                     <br/><br/>{errors}
             </form>
 
-            <h4> Need to create an account? </h4>
+            <h3> Create Account: </h3>
             <SignUpForm setUser={setUser}/>
 
         </div>

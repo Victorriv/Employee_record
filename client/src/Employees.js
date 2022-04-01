@@ -41,13 +41,24 @@ function Employees({user}) {
         .then((o) => setEmployees(o));
     };
 
+    const nameSorted = () =>{
+        fetch('/employee/list')
+        .then((r) => r.json())
+        .then((l) => setEmployees(l));
+
+    };
+
+
     const showEmployees = employees&&employees.map((employee) => <EmployeeCard user={user} editEmployee={editEmployee} key={employee.id} employee={employee} removeEmployee={removeEmployee} />)
     return (
         
         <div>
             <h1>Employee list</h1>
-            <button onClick= {organizeOrder}> Organize</button>
-
+        
+            <button onClick= {organizeOrder}> Sort by age</button>
+            <button onClick= {nameSorted}> Sort by name</button>
+           
+        
             {showEmployees}
             <EmployeeForm user={user} addEmployee={addEmployee}/>
             

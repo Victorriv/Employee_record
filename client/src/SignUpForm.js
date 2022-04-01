@@ -31,14 +31,14 @@ function SignUpForm({setUser}){
 
         <div className= "App">
             <form onSubmit = {handleSubmit}>
-                <label>  Create an Account: </label>
+                <label> New Username: </label>
                 <input type= "text" 
                         id = "username"
                         value = {username}
                         onChange= {e => setUsername(e.target.value) } />
 
                         <br/>
-                        <label> Password: </label>
+                        <label> New Password: </label>
                         <input 
                         type="password"
                         id="password"

@@ -2,9 +2,16 @@ class EmployeesController < ApplicationController
     skip_before_action :authorize
 
     def organize
-        @current_user = User.find(session[:user_id])
+        @current_user = custom_paths
         employees = @current_user.employees.by_ages
         render json: employees
+    end
+
+    def list
+        @current_user = custom_paths
+        employees = @current_user.employees.by_names
+        render json: employees
+
     end
 
     def index
@@ -14,7 +21,11 @@ class EmployeesController < ApplicationController
 
     def create
         employee = Employee.create(employee_params)
+        if employee.valid? 
         render json: employee
+        else 
+            render json: { errors: ["Please fill out the blanks"] }, status: :unauthorized
+        end
     end
 
     def update
@@ -49,4 +60,7 @@ class EmployeesController < ApplicationController
         end
 
 
+        def custom_paths
+            User.find(session[:user_id])
+        end
 end

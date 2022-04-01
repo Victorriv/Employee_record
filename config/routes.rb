@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get "/me", to: "users#show"
   get "/employee/organize", to: "employees#organize"
+  get "/employee/list", to: "employees#list"
 
 
   # Routing logic: fallback requests for React Router.

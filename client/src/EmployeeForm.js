@@ -6,6 +6,7 @@ function EmployeeForm({user, addEmployee}){
     const [age, setAge] = useState("")
     const [status, setStatus] = useState("")
     const [gender, setGender] = useState("")
+    const [errors, setErrors] = useState("")
 
 
     function handleSubmit (e){
@@ -27,35 +28,59 @@ function EmployeeForm({user, addEmployee}){
                 gender,
                 user_id: user.id
             }),
+        }).then((res) => {
+            if(res.ok){
+                res.json().then((emp) => {
+                    addEmployee(emp)
+                
+                })
+
+            } else {
+                res.json().then(errors => {
+                    setErrors(errors.errors)
+                })
+            }
         })
-        .then(r => r.json())
-        .then(t => addEmployee(t))
     }
 
+    const displayError = () => {
+        return errors.map(error => {
+            return <div>{error}</div>
+        })
+    }
 
     return(
         <div>
             <form onSubmit={handleSubmit}>
+                {errors ? 
+                <span>{errors && displayError()}</span> : <span></span>
+                }
+            
                 <h2>Add Employee</h2>
 
-                <label> Name: </label>
+                <label className="L"> Name: </label>
                 <input type= "text" id="name" value={name} onChange={e => setName(e.target.value)} />
+                <br/>
 
-                <label> Age: </label>
+                <label className="L"> Age: </label>
                 <input type= "text" id="age" value={age} onChange={e => setAge(e.target.value)}/>
+                <br/>
 
-                <label>Status: </label>
+                <label className="L">Status: </label>
                 <input type= "text" id="status" value={status} onChange={e => setStatus(e.target.value)}/>
+                <br/>
 
-                <label>Gender</label>
+                <label className="L" >Gender:</label>
                 <input type="text" id="gender" value={gender} onChange={e => setGender(e.target.value)}/>
+                <br/>
                 <input type= "submit" />
+                
                 
                 
             </form>
 
 
-        </div>
+                </div>
 
     )
 
